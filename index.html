@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kostková Hra</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" type="module"></script>
+</head>
+<body>
+    <header>
+        <h1>Gamba</h1>
+    </header>
+    <main>
+        <div id="game">
+            <div id="bettingSection">
+                <h2>Vsaďte si</h2>
+                <label for="numberSelect">Vyberte číslo (1-20):</label>
+                <input type="number" id="numberSelect" min="1" max="20" required>
+                <label for="betAmount">Sázka (počet tokenů):</label>
+                <input type="number" id="betAmount" min="1" required>
+                <button id="placeBet">Vsadit</button>
+            </div>
+            <div id="diceSection">
+                <h2>Hod kostkou</h2>
+                <button id="rollDice">Hodit kostkou</button>
+                <div id="dice">
+                    <p id="diceResult"></p>
+                </div>
+            </div>
+        </div>
+        <div id="status">
+            <p>Vaše tokeny: <span id="tokens">100</span></p>
+            <p id="message"></p>
+        </div>
+        <div id="history">
+            <h2>Historie Hodů a Sázek</h2>
+            <ul id="historyList"></ul>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Matěj Vondra</p>
+    </footer>
+</body>
+</html>
