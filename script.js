@@ -66,6 +66,9 @@ function rollDice() {
     }
     messageDisplay.textContent = resultMessage;
 
+    // Přidání záznamu do historie
+    addHistoryEntry(selectedNumber, bet, diceRoll, resultMessage);
+
     // Resetování sázky
     selectedNumber = null;
     bet = null;
@@ -88,9 +91,6 @@ function addHistoryEntry(number, bet, result, message) {
     updateHistoryDisplay();
 }
 
-// Přidání záznamu do historie
-    addHistoryEntry(selectedNumber, bet, diceRoll, resultMessage);
-    
 // Funkce pro aktualizaci zobrazení historie (Částečně ChatGPT)
 function updateHistoryDisplay() {
     historyList.innerHTML = '';
@@ -107,6 +107,15 @@ rollDiceButton.addEventListener('click', rollDice);
 
 // Inicializace zobrazení tokenů
 updateTokens();
+
+// Komentáře pro vysvětlení kódu
+// tokens je proměnná pro sledování aktuálního počtu tokenů
+// updateTokens aktualizuje zobrazení tokenů na stránce
+// placeBet zpracovává sázení hráče
+// rollDice simuluje hod kostkou a vyhodnocuje výsledek
+// addHistoryEntry přidává záznam do historie sázek a hodů
+// updateHistoryDisplay aktualizuje zobrazení historie na stránce
+// Event listenery pro tlačítka zpracovávají kliknutí uživatele na tlačítka
 
 // Kontrola věku uživatele při načtení stránky (ChatGPT)
 window.onload = checkAge;
