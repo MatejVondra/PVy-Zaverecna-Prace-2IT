@@ -108,14 +108,5 @@ rollDiceButton.addEventListener('click', rollDice);
 // Inicializace zobrazení tokenů
 updateTokens();
 
-// Komentáře pro vysvětlení kódu
-// tokens je proměnná pro sledování aktuálního počtu tokenů
-// updateTokens aktualizuje zobrazení tokenů na stránce
-// placeBet zpracovává sázení hráče
-// rollDice simuluje hod kostkou a vyhodnocuje výsledek
-// addHistoryEntry přidává záznam do historie sázek a hodů
-// updateHistoryDisplay aktualizuje zobrazení historie na stránce
-// Event listenery pro tlačítka zpracovávají kliknutí uživatele na tlačítka
-
 // Kontrola věku uživatele při načtení stránky (ChatGPT)
 window.onload = checkAge;
