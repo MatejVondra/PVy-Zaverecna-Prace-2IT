@@ -1,4 +1,11 @@
-// script.js
+// Funkce pro kontrolu věku uživatele
+function checkAge() {
+    const isOldEnough = confirm('Je vám 15 let nebo více? Hazardní hry mohou být návykové.');
+    if (!isOldEnough) {
+        alert('Omlouváme se, ale musíte být starší 15 let, abyste mohli hrát.');
+        window.location.href = 'https://www.blesk.cz/clanek/radce-zdravi-a-zivotni-styl-zdravi/373228/7-1-rada-jak-osalit-vek.html'; // Přesměrování na jinou stránku
+    }
+}
 
 let tokens = 100; // Počáteční počet tokenů
 const tokensDisplay = document.getElementById('tokens');
@@ -39,7 +46,7 @@ function placeBet() {
     messageDisplay.textContent = `Sázka: ${bet} tokenů na číslo ${selectedNumber}. Hodit kostkou!`;
 }
 
-// Funkce pro hod kostkou
+// Funkce pro hod kostkou (z velmi malé části ze cvičení)
 function rollDice() {
     if (selectedNumber === null || bet === null) {
         alert('Prosím, nejdříve si vsadíte.');
@@ -47,7 +54,7 @@ function rollDice() {
     }
 
     const diceRoll = Math.floor(Math.random() * 20) + 1;
-    diceResultDisplay.textContent = `Padlo číslo: ${diceRoll}`;
+    diceResultDisplay.textContent = `${diceRoll}`;
 
     let resultMessage;
     if (diceRoll === selectedNumber) {
@@ -59,9 +66,6 @@ function rollDice() {
     }
     messageDisplay.textContent = resultMessage;
 
-    // Přidání záznamu do historie
-    addHistoryEntry(selectedNumber, bet, diceRoll, resultMessage);
-
     // Resetování sázky
     selectedNumber = null;
     bet = null;
@@ -71,7 +75,7 @@ function rollDice() {
     updateTokens();
 }
 
-// Funkce pro přidání záznamu do historie
+// Funkce pro přidání záznamu do historie (ChatGPT)
 function addHistoryEntry(number, bet, result, message) {
     const entry = {
         number: number,
@@ -84,7 +88,10 @@ function addHistoryEntry(number, bet, result, message) {
     updateHistoryDisplay();
 }
 
-// Funkce pro aktualizaci zobrazení historie
+// Přidání záznamu do historie
+    addHistoryEntry(selectedNumber, bet, diceRoll, resultMessage);
+    
+// Funkce pro aktualizaci zobrazení historie (Částečně ChatGPT)
 function updateHistoryDisplay() {
     historyList.innerHTML = '';
     for (const entry of history) {
@@ -101,7 +108,7 @@ rollDiceButton.addEventListener('click', rollDice);
 // Inicializace zobrazení tokenů
 updateTokens();
 
-// Přidání komentářů pro vysvětlení kódu
+// Komentáře pro vysvětlení kódu
 // tokens je proměnná pro sledování aktuálního počtu tokenů
 // updateTokens aktualizuje zobrazení tokenů na stránce
 // placeBet zpracovává sázení hráče
@@ -109,3 +116,6 @@ updateTokens();
 // addHistoryEntry přidává záznam do historie sázek a hodů
 // updateHistoryDisplay aktualizuje zobrazení historie na stránce
 // Event listenery pro tlačítka zpracovávají kliknutí uživatele na tlačítka
+
+// Kontrola věku uživatele při načtení stránky (ChatGPT)
+window.onload = checkAge;
